@@ -3,7 +3,7 @@
 const BASE_URL = 'https://thinkful-list-api.herokuapp.com/brandon';
 
 // this will successfully run the fetch function and 'POST' a new bookmark to the api. Error checking still needs to be implemented.
-function booksApitFetch(...args) {
+function booksApiFetch(...args) {
     let error;
     return fetch(...args)
         .then(res => {
@@ -37,14 +37,14 @@ function booksApitFetch(...args) {
 };
 
 function getBookmarks() {
-    return booksApitFetch(`${BASE_URL}/bookmarks`)
+    return booksApiFetch(`${BASE_URL}/bookmarks`)
 }
 
 
 //This is now successfully posting to the API!
 function createBookmark(bookmark) {
     const newBookmark = JSON.stringify(bookmark);
-    return booksApitFetch(`${BASE_URL}/bookmarks`, {
+    return booksApiFetch(`${BASE_URL}/bookmarks`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -54,7 +54,15 @@ function createBookmark(bookmark) {
 };
 
 
+function deleteBookmark(id) {
+    return booksApiFetch(`${BASE_URL}/bookmarks/${id}`, {
+        method: "DELETE"
+    });
+};
+
+
 export default {
     getBookmarks,
     createBookmark,
+    deleteBookmark,
 };
