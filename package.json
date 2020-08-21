@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/thinkful-ei-rabbit/brandon-weiss-bookmarks-app#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
     "jquery": "^3.5.1",
     "jquery-serializejson": "^2.9.0"
   },

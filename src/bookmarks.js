@@ -10,12 +10,13 @@ function generateBookmarkElement(bookmark) {
         return`
         <li class='js-bookmark-element' data-bookmark-id="${bookmark.id}">
             <section class='expanded-view'>
-                <span>${bookmark.title}</span> <button type='button' id='delete-bookmark'>DELETE</button>
+                <span>${bookmark.title}</span> 
+                <button type='button' id='delete-bookmark' class="fas fa-trash-alt"></button>
             </section>
             <div class='expanded-bd'>
                 <section class='expanded-url'>
                     <button id='js-visit-url'>Visit Site</button>
-                    <span>${bookmark.rating}</span>
+                    <p>rating: ${bookmark.rating}</p>
                 </section>
                 <p>${bookmark.desc}</p>
             </div>
@@ -62,11 +63,11 @@ function generateCreateBookmark() {
 
         <section class='add-bookmark'>
             <div>
-                <input class= 'js-rating-input' name='rating' type="radio" value='1' checked>
-                <input class= 'js-rating-input' name='rating' type="radio" value='2'>
-                <input class= 'js-rating-input' name='rating' type="radio" value='3'>
-                <input class= 'js-rating-input' name='rating' type="radio" value='4'>
-                <input class= 'js-rating-input' name='rating' type="radio" value='5'>
+                <label for="radio1"><input class='fas fa-star js-rating-input' id='radio1' name='rating' type="radio" value='1' checked></label>
+                <label for="radio2"><input class='fas fa-star js-rating-input' id='radio2' name='rating' type="radio" value='2'></label>            
+                <label for="radio3"><input class='fas fa-star js-rating-input' id='radio3' name='rating' type="radio" value='3'></label>          
+                <label for="radio4"><input class='fas fa-star js-rating-input' id='radio4' name='rating' type="radio" value='4'></label>
+                <label for="radio5"><input class='fas fa-star js-rating-input' id='radio5' name='rating' type="radio" value='5'></label>
             </div>
             <textarea class="width js-desc-input" id="url" name='desc-input' rows="10"
                 placeholder="Add a description (optional)"></textarea>
@@ -74,10 +75,11 @@ function generateCreateBookmark() {
                 <button type='button' id='cancel'>Cancel</button>
                 <button type='submit' id='submit'>Create</button>
             </div>
+            <div class="error-container">
+            </div>
         </section>
-    </form>
-    <div class="error-container">
-    </div>`
+    </form>`
+
 }
 
 // The following 3 functions generate render and handle the error display
