@@ -188,15 +188,9 @@ function getBookmarkIdFromElement(bookmark) {
 //This will work, but there should be a better way to append the expanded: true key value pair
 function handleBookmarkExpandedClicked() {
     $('main').on('click', 'li', function(event) {
-        const id = getBookmarkIdFromElement(event.currentTarget);
-        let bookmark = store.findById(id)
-        if (typeof bookmark.expanded === 'undefined') {
-            store.findAndUpdate(id, {expanded: true})
-            render()
-        } else {
-            store.findAndUpdate(id, {expanded: !bookmark.expanded})
-            render()
-        }
+        let targetBookmark = $(this).data().bookmarkId
+        store.bookmarks.forEach(currentBookmark => currentBookmark.id === targetBookmark ? currentBookmark.expanded = !currentBookmark.expanded : currentBookmark.expanded = false)
+        render()
     })
 }
 
