@@ -34,6 +34,7 @@ function generateBookmarkElementString(bookmarkList) {
             <section class='home-buttons-section'>
                 <button type='button' id='add-bookmark'>+ New</button>
                 <select id='filter' name='filter-bookmarks'>
+                <label for='filter'></label>
                     <option class='js-filter' id='js-option1' value="1">Filter By</option>
                     <option class='js-filter' id='js-option1' value="1">X</option>
                     <option class='js-filter' id='js-option2' value="2">XX</option>
@@ -185,7 +186,7 @@ function getBookmarkIdFromElement(bookmark) {
 }
 
 
-//This will work, but there should be a better way to append the expanded: true key value pair
+//Updated, now only one window will appear expanded at a time
 function handleBookmarkExpandedClicked() {
     $('main').on('click', 'li', function(event) {
         let targetBookmark = $(this).data().bookmarkId
